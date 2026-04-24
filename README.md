@@ -1,10 +1,8 @@
-# Download-file
-Link to file on repo GitHub 
-```markdown
+
 # Upload File via GitHub Workflow
-
+```
 این ریپوزیتوری شامل یک کد ورک‌فلو است که فایل‌هایی با لینک مستقیم را در مخزن آپلود می‌کند.
-
+```
 ## نحوه استفاده
 
 1. مخزن را کلون کنید:
