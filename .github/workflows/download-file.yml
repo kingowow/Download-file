@@ -1,7 +1,8 @@
+
 name: Download File to Repository
 
 on:
-  workflow_dispatch:  # این اجازه می‌دهد که به صورت دستی اجرا شود
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   download-file:
@@ -13,19 +14,37 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history to allow pushing back
 
       - name: Create files directory if not exists
         run: mkdir -p files
 
       - name: Download file
         run: |
-          curl -L $FILE_URL -o files/$FILE_NAME
+          curl -L -f $FILE_URL -o files/$FILE_NAME
+          # -f flag ensures curl fails on HTTP errors
 
-      - name: Commit and push changes
+      - name: Check if file was downloaded successfully
+        run: |
+          if [ ! -f "files/$FILE_NAME" ]; then
+            echo "Error: File was not downloaded successfully"
+            exit 1
+          fi
+
+      - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add files/$FILE_NAME
-          git commit -m "Download file $FILE_NAME from $FILE_URL" || echo "No changes to commit"
-          git push || echo "Failed to push changes"
+
+      - name: Commit and push changes
+        run: |
+          # Check if there are changes to commit
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit"
+          else
+            git add files/$FILE_NAME
+            git commit -m "Download file $FILE_NAME from $FILE_URL"
+            git push origin main  # Specify branch explicitly
+          fi
