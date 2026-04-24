@@ -7,7 +7,7 @@
 
 1. مخزن را کلون کنید:
    ```bash
-   git clone <آدرس مخزن>
+   git clone <https://github.com/kingowow/Download-file.git>
    ```
 
 2. به پوشه `.github/workflows` بروید و فایل `download-file.yml` را باز و ویرایش کنید.
