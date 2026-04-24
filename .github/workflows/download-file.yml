@@ -1,50 +1,40 @@
-
-name: Download File to Repository
+name: Download APK and Upload to Repo
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch:
+
+permissions:
+  contents: write  # اجازه نوشتن در ریپو
 
 jobs:
-  download-file:
+  download-and-upload:
     runs-on: ubuntu-latest
-
-    env:
-      FILE_URL: https://github.com/D1menc1a/dnstt-android-proxy/releases/download/v1.0.0-doh/dnstt.apk
-      FILE_NAME: dnstt.apk
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Fetch all history to allow pushing back
+          persist-credentials: false  # اجازه می‌دهد توکن جدید ست شود
 
-      - name: Create files directory if not exists
-        run: mkdir -p files
-
-      - name: Download file
-        run: |
-          curl -L -f $FILE_URL -o files/$FILE_NAME
-          # -f flag ensures curl fails on HTTP errors
-
-      - name: Check if file was downloaded successfully
-        run: |
-          if [ ! -f "files/$FILE_NAME" ]; then
-            echo "Error: File was not downloaded successfully"
-            exit 1
-          fi
-
-      - name: Configure Git
+      - name: Setup Git config
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push changes
+      - name: Create files directory
+        run: mkdir -p files
+
+      - name: Download APK file
+        env:
+          FILE_URL: https://github.com/D1menc1a/dnstt-android-proxy/releases/download/v1.0.0-doh/dnstt.apk
+          FILE_NAME: dnstt.apk
         run: |
-          # Check if there are changes to commit
-          if git diff-index --quiet HEAD --; then
-            echo "No changes to commit"
-          else
-            git add files/$FILE_NAME
-            git commit -m "Download file $FILE_NAME from $FILE_URL"
-            git push origin main  # Specify branch explicitly
-          fi
+          curl -L $FILE_URL -o files/$FILE_NAME
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git add files/$FILE_NAME
+          git diff --cached --quiet || (git commit -m "Add/update $FILE_NAME" && git push origin HEAD:${{ github.ref_name }})
