@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/ARMSX2/ARMSX2/releases/download/1.0.6/ARMSX2_21_202511261234-unrestricted-release.apk
-          FILE_NAME: armsx2.apk
+          FILE_URL: https://github.com/sashkinbro/EmuCoreX/releases/download/v0.1.4/EmuCoreX.v0.1.4.apk
+          FILE_NAME: ecorex.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
