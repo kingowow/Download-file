@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/freely1404/IranianDNStester/releases/download/v1.0.3/app-release.apk
-          FILE_NAME: dnssc.apk
+          FILE_URL: https://github.com/mohjaf67/dnstt-fast-tunnel/releases/download/v1.3.0/dnstt-client-android-arm.apk
+          FILE_NAME: dnsttc.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
