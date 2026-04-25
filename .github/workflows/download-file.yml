@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/sashkinbro/EmuCoreX/releases/download/v0.1.4/EmuCoreX.v0.1.4.apk
-          FILE_NAME: ecorex.apk
+          FILE_URL: https://github.com/mohjaf67/dnstt-fast-tunnel/releases/download/v1.3.0/dnstt-client-android-arm.apk
+          FILE_NAME: dnst.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
