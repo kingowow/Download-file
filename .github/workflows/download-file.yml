@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/mohjaf67/dnstt-fast-tunnel/releases/download/v1.3.0/dnstt-client-android-arm64.apk
-          FILE_NAME: dnsttc.apk
+          FILE_URL: https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.7.2/mhrv-rs-android-arm64-v8a-v1.7.2.apk
+          FILE_NAME: mhrv.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
