@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/SlipNet-v2.5.3-full-release-arm64-v8a.apk
-          FILE_NAME: slipnet.apk
+          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/SlipNet-v2.5.3-lite-release-arm64-v8a.apk
+          FILE_NAME: slipnet-lite.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
