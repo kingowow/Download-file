@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.7.2/mhrv-rs-android-arm64-v8a-v1.7.2.apk
-          FILE_NAME: mhrv.apk
+          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/SlipNet-v2.5.3-full-release-arm64-v8a.apk
+          FILE_NAME: slipnet.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
