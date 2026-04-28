@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/Kitakatarashima/AetherSX2-XGolden/releases/download/V8%26v2Formediatek/AetherSX2.XGolden_v8.XGolden.4248.apk
-          FILE_NAME: aethersx2-xg.apk
+          FILE_URL: https://github.com/MaxRBLX1/SandboxSX2/releases/download/0.7/SandboxSX2_0.7.apk
+          FILE_NAME: sandboxsx2.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
