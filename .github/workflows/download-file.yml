@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/Siddhesh2377/ToolNeuron/releases/download/v2.0.3/app-release.apk
-          FILE_NAME: toolneuron.apk
+          FILE_URL: https://github.com/Razee4315/neurix/releases/download/v0.3.12/Neurix_0.3.12_android.apk
+          FILE_NAME: neurix.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
