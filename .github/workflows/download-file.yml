@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/jayozasx-jpg/MaliSX2/releases/download/v1.0/MaliSX2_sign.apk
-          FILE_NAME: malisx2.apk
+          FILE_URL: https://github.com/Siddhesh2377/ToolNeuron/releases/download/v2.0.3/app-release.apk
+          FILE_NAME: toolneuron.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
