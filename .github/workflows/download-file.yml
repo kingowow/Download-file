@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/MaxRBLX1/SandboxSX2/releases/download/0.7/SandboxSX2_0.7.apk
-          FILE_NAME: sandboxsx2.apk
+          FILE_URL: https://github.com/jayozasx-jpg/MaliSX2/releases/download/v1.0/MaliSX2_sign.apk
+          FILE_NAME: malisx2.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
