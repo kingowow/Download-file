@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/anonvector/SlipNet/releases/download/v2.5.3/SlipNet-v2.5.3-lite-release-arm64-v8a.apk
-          FILE_NAME: slipnet-lite.apk
+          FILE_URL: https://github.com/Kitakatarashima/AetherSX2-XGolden/releases/download/V8%26v2Formediatek/AetherSX2.XGolden_v8.XGolden.4248.apk
+          FILE_NAME: aethersx2-xg.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
