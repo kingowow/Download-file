@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.9.8/mhrv-rs-android-arm64-v8a-v1.9.8.apk
-          FILE_NAME: mhrv-rs.apk
+          FILE_URL: https://github.com/FrankBarretta/LSFG-Android/releases/download/0.1.1-Fix/LSFG-Android.apk
+          FILE_NAME: LSFG.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
