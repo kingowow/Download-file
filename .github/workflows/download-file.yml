@@ -26,8 +26,8 @@ jobs:
 
       - name: Download APK file
         env:
-          FILE_URL: https://github.com/FrankBarretta/LSFG-Android/releases/download/0.1.1-Fix/LSFG-Android.apk
-          FILE_NAME: LSFG.apk
+          FILE_URL: https://github.com/ajavadinezhad/zyrln/releases/download/v1.4.0/zyrln-1.4.0.apk
+          FILE_NAME: zyrln.apk
         run: |
           curl -L $FILE_URL -o files/$FILE_NAME
 
